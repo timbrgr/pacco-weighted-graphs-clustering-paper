@@ -1,6 +1,35 @@
 # Seminar paper on clustering of weighted graphs using the PaCCo algorithm
 Seminar paper (@Technical University Munich) on parameter free clustering of weighted graphds using the PaCCo algorithm (Parameter-free Clustering by Coding costs)).
 
-**References**:
+The PaCCo algorithm was originally conceptualized and devised by:
 Mueller, N.S., Haegler, K., Shao, J., Plant, C. and Böhm, C., 2011, April. Weighted graph compression for parameter-free clustering with pacco. In Proceedings of the 2011 SIAM International Conference on Data Mining (pp. 932-943). Society for Industrial and Applied Mathematics.
 https://pdfs.semanticscholar.org/21f3/5d96e7854e1d41ba7e1e1f0c33886719af7c.pdf
+
+**REFERENCES**
+
+[1] A.-L. Barabsi, M. Martino, M. Psfai, and P. Hvel, Network
+Science. self published online, 2012.
+
+[2] K.-I. Goh, M. E. Cusick, D. Valle, B. Childs, M. Vidal,
+and A.-L. Barabsi, “The human disease network,” Proceedings of the National Academy of Sciences, vol. 104, no. 21, pp. 8685–8690, 2007. [Online]. Available:http://www.pnas.org/content/104/21/8685.abstract
+
+[3] N. Mueller, K. Haegler, J. Shao, C. Plant, and C. Böhm, “Weighted graph compression for parameter-free clustering with pacco.” in SDM. SIAM, 2011, pp. 932–943.
+
+[4] L. Zelnik-Manor and P. Perona, “Self-tuning spectral clustering.” in NIPS, vol. 17, no. 1601-1608, 2004, p. 16.
+
+[5] S. v. Dongen, “A cluster algorithm for graphs,” Information Systems [INS], no. R 0010, pp. 1–40, 2000.
+
+[6] G. Karypis and V. Kumar, “A software package for partitioning unstructured graphs, partitioning meshes, and
+computing fill-reducing orderings of sparse matrices,” 1998.
+
+[7] D. Chakrabarti, S. Papadimitriou, D. S. Modha, and C. Faloutsos, “Fully automatic cross-associations,” in In
+KDD, 2004.
+
+[8] J. Rissanen, “Modeling by shortest data description,” Automatica, vol. 14, no. 5, pp. 465–471, 1978.
+
+[9] ——, “Minimum description length principle,” in Encyclopedia of Machine Learning, C. Sammut and G. Webb,
+Eds. Springer US, 2010, pp. 666–668. 
+
+[10] T. A. Runkler, “Clustering,” in Data Analytics. Vieweg+Teubner Verlag, 2012, pp. 103–122.
+
+[11] S. Miyamoto and K. Umayahara, “Methods in hard and fuzzy clustering,” in Soft Computing and Human-Centered Machines, ser. Computer Science Workbench, Z.-Q. Liu and S. Miyamoto, Eds. Springer Japan, 2000, pp. 119–125.
