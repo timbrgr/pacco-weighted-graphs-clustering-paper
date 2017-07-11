@@ -1,0 +1,8 @@
+@inproceedings{mueller2011weighted,
+  title={Weighted Graph Compression for Parameter-free Clustering With PaCCo.},
+  author={Mueller, Nikola and Haegler, Katrin and Shao, Junming and Plant, Claudia and B{\"o}hm, Christian},
+  booktitle={SDM},
+  pages={932--943},
+  year={2011},
+  organization={SIAM}
+}

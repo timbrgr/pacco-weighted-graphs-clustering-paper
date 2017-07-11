@@ -1,0 +1,712 @@
+\documentclass[12pt,journal,compsoc]{IEEEtran}
+% *** CITATION PACKAGES ***
+\ifCLASSOPTIONcompsoc
+   \usepackage[nocompress]{cite}
+\else
+   \usepackage{cite}
+\fi
+\usepackage{caption}
+\usepackage{refstyle}
+
+% *** GRAPHICS RELATED PACKAGES ***
+%
+\ifCLASSINFOpdf
+  \usepackage[pdftex]{graphicx}
+  % declare the path(s) where your graphic files are
+  \graphicspath{{./Bildmaterial/}}
+  %{../jpeg/}
+  % and their extensions so you won't have to specify these with
+  % every instance of \includegraphics
+  \DeclareGraphicsExtensions{.pdf,.jpeg,.png}
+\else
+  % or other class option (dvipsone, dvipdf, if not using dvips). graphicx
+  % will default to the driver specified in the system graphics.cfg if no
+  % driver is specified.
+  % \usepackage[dvips]{graphicx}
+  % declare the path(s) where your graphic files are
+  % \graphicspath{{../eps/}}
+  % and their extensions so you won't have to specify these with
+  % every instance of \includegraphics
+  % \DeclareGraphicsExtensions{.eps}
+\fi
+% graphicx was written by David Carlisle and Sebastian Rahtz. It is
+% required if you want graphics, photos, etc. graphicx.sty is already
+% installed on most LaTeX systems. The latest version and documentation can
+% be obtained at: 
+% http://www.ctan.org/tex-archive/macros/latex/required/graphics/
+% Another good source of documentation is "Using Imported Graphics in
+% LaTeX2e" by Keith Reckdahl which can be found as epslatex.ps or
+% epslatex.pdf at: http://www.ctan.org/tex-archive/info/
+%
+% latex, and pdflatex in dvi mode, support graphics in encapsulated
+% postscript (.eps) format. pdflatex in pdf mode supports graphics
+% in .pdf, .jpeg, .png and .mps (metapost) formats. Users should ensure
+% that all non-photo figures use a vector format (.eps, .pdf, .mps) and
+% not a bitmapped formats (.jpeg, .png). IEEE frowns on bitmapped formats
+% which can result in "jaggedy"/blurry rendering of lines and letters as
+% well as large increases in file sizes.
+%
+% You can find documentation about the pdfTeX application at:
+% http://www.tug.org/applications/pdftex
+
+
+% *** MATH PACKAGES ***
+%
+\usepackage[cmex10]{amsmath}
+
+% Also, note that the amsmath package sets \interdisplaylinepenalty to 10000
+% thus preventing page breaks from occurring within multiline equations. Use:
+%\interdisplaylinepenalty=2500
+% after loading amsmath to restore such page breaks as IEEEtran.cls normally
+% does. amsmath.sty is already installed on most LaTeX systems. The latest
+% version and documentation can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/required/amslatex/math/
+
+
+% *** SPECIALIZED LIST PACKAGES ***
+%
+%\usepackage{algorithmic}
+% algorithmic.sty was written by Peter Williams and Rogerio Brito.
+% This package provides an algorithmic environment fo describing algorithms.
+% You can use the algorithmic environment in-text or within a figure
+% environment to provide for a floating algorithm. Do NOT use the algorithm
+% floating environment provided by algorithm.sty (by the same authors) or
+% algorithm2e.sty (by Christophe Fiorio) as IEEE does not use dedicated
+% algorithm float types and packages that provide these will not provide
+% correct IEEE style captions. The latest version and documentation of
+% algorithmic.sty can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/algorithms/
+% There is also a support site at:
+% http://algorithms.berlios.de/index.html
+% Also of interest may be the (relatively newer and more customizable)
+% algorithmicx.sty package by Szasz Janos:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/algorithmicx/
+
+
+% *** ALIGNMENT PACKAGES ***
+%
+%\usepackage{array}
+% Frank Mittelbach's and David Carlisle's array.sty patches and improves
+% the standard LaTeX2e array and tabular environments to provide better
+% appearance and additional user controls. As the default LaTeX2e table
+% generation code is lacking to the point of almost being broken with
+% respect to the quality of the end results, all users are strongly
+% advised to use an enhanced (at the very least that provided by array.sty)
+% set of table tools. array.sty is already installed on most systems. The
+% latest version and documentation can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/required/tools/
+
+
+%\usepackage{mdwmath}
+%\usepackage{mdwtab}
+% Also highly recommended is Mark Wooding's extremely powerful MDW tools,
+% especially mdwmath.sty and mdwtab.sty which are used to format equations
+% and tables, respectively. The MDWtools set is already installed on most
+% LaTeX systems. The lastest version and documentation is available at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/mdwtools/
+
+
+% IEEEtran contains the IEEEeqnarray family of commands that can be used to
+% generate multiline equations as well as matrices, tables, etc., of high
+% quality.
+
+
+%\usepackage{eqparbox}
+% Also of notable interest is Scott Pakin's eqparbox package for creating
+% (automatically sized) equal width boxes - aka "natural width parboxes".
+% Available at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/eqparbox/
+
+
+% *** SUBFIGURE PACKAGES ***
+%\ifCLASSOPTIONcompsoc
+%\usepackage[tight,normalsize,sf,SF]{subfigure}
+%\else
+%\usepackage[tight,footnotesize]{subfigure}
+%\fi
+% subfigure.sty was written by Steven Douglas Cochran. This package makes it
+% easy to put subfigures in your figures. e.g., "Figure 1a and 1b". For IEEE
+% work, it is a good idea to load it with the tight package option to reduce
+% the amount of white space around the subfigures. Computer Society papers
+% use a larger font and \sffamily font for their captions, hence the
+% additional options needed under compsoc mode. subfigure.sty is already
+% installed on most LaTeX systems. The latest version and documentation can
+% be obtained at:
+% http://www.ctan.org/tex-archive/obsolete/macros/latex/contrib/subfigure/
+% subfigure.sty has been superceeded by subfig.sty.
+
+
+%\ifCLASSOPTIONcompsoc
+%  \usepackage[caption=false]{caption}
+%  \usepackage[font=normalsize,labelfont=sf,textfont=sf]{subfig}
+%\else
+%  \usepackage[caption=false]{caption}
+%  \usepackage[font=footnotesize]{subfig}
+%\fi
+% subfig.sty, also written by Steven Douglas Cochran, is the modern
+% replacement for subfigure.sty. However, subfig.sty requires and
+% automatically loads Axel Sommerfeldt's caption.sty which will override
+% IEEEtran.cls handling of captions and this will result in nonIEEE style
+% figure/table captions. To prevent this problem, be sure and preload
+% caption.sty with its "caption=false" package option. This is will preserve
+% IEEEtran.cls handing of captions. Version 1.3 (2005/06/28) and later 
+% (recommended due to many improvements over 1.2) of subfig.sty supports
+% the caption=false option directly:
+%\ifCLASSOPTIONcompsoc
+%  \usepackage[caption=false,font=normalsize,labelfont=sf,textfont=sf]{subfig}
+%\else
+%  \usepackage[caption=false,font=footnotesize]{subfig}
+%\fi
+%
+% The latest version and documentation can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/subfig/
+% The latest version and documentation of caption.sty can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/caption/
+
+
+% *** PDF, URL AND HYPERLINK PACKAGES ***
+%
+%\usepackage{url}
+% url.sty was written by Donald Arseneau. It provides better support for
+% handling and breaking URLs. url.sty is already installed on most LaTeX
+% systems. The latest version can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/misc/
+% Read the url.sty source comments for usage information. Basically,
+% \url{my_url_here}.
+
+% correct bad hyphenation here
+\hyphenation{op-tical net-works semi-conduc-tor}
+\numberwithin{equation}{section}
+
+\begin{document}
+%
+% paper title
+% can use linebreaks \\ within to get better formatting as desired
+\title{Parameter-free Clustering \\ of Weighted Graphs  using PaCCo}
+%
+%
+% author names and IEEE memberships
+% note positions of commas and nonbreaking spaces ( ~ ) LaTeX will not break
+% a structure at a ~ so this keeps an author's name from being broken across
+% two lines.
+% use \thanks{} to gain access to the first footnote area
+% a separate \thanks must be used for each paragraph as LaTeX2e's \thanks
+% was not built to handle multiple paragraphs
+%
+%
+%\IEEEcompsocitemizethanks is a special \thanks that produces the bulleted
+% lists the Computer Society journals use for "first footnote" author
+% affiliations. Use \IEEEcompsocthanksitem which works much like \item
+% for each affiliation group. When not in compsoc mode,
+% \IEEEcompsocitemizethanks becomes like \thanks and
+% \IEEEcompsocthanksitem becomes a line break with idention. This
+% facilitates dual compilation, although admittedly the differences in the
+% desired content of \author between the different types of papers makes a
+% one-size-fits-all approach a daunting prospect. For instance, compsoc 
+% journal papers have the author affiliations above the "Manuscript
+% received ..."  text while in non-compsoc journals this is reversed. Sigh.
+
+\author{Tim~Berger, Student of Business Informatics (B.Sc.)}% <-this % stops a space
+
+
+% note the % following the last \IEEEmembership and also \thanks - 
+% these prevent an unwanted space from occurring between the last author name
+% and the end of the author line. i.e., if you had this:
+% 
+% \author{....lastname \thanks{...} \thanks{...} }
+%                     ^------------^------------^----Do not want these spaces!
+%
+% a space would be appended to the last name and could cause every name on that
+% line to be shifted left slightly. This is one of those "LaTeX things". For
+% instance, "\textbf{A} \textbf{B}" will typeset as "A B" not "AB". To get
+% "AB" then you have to do: "\textbf{A}\textbf{B}"
+% \thanks is no different in this regard, so shield the last } of each \thanks
+% that ends a line with a % and do not let a space in before the next \thanks.
+% Spaces after \IEEEmembership other than the last one are OK (and needed) as
+% you are supposed to have spaces between the names. For what it is worth,
+% this is a minor point as most people would not even notice if the said evil
+% space somehow managed to creep in.
+
+
+
+% The paper headers
+\markboth{Seminar: Information-theoretic Data Mining SS14 - Technical University Munich - Helmholtz Center Munich}%
+{Shell \MakeLowercase{\textit{et al.}}:Seminar: Information-theoretic Data Mining SS14 - Technical University Munich - Helmholtz Center Munich}
+% The only time the second header will appear is for the odd numbered pages
+% after the title page when using the twoside option.
+% 
+% *** Note that you probably will NOT want to include the author's ***
+% *** name in the headers of peer review papers.                   ***
+% You can use \ifCLASSOPTIONpeerreview for conditional compilation here if
+% you desire.
+
+
+
+% The publisher's ID mark at the bottom of the page is less important with
+% Computer Society journal papers as those publications place the marks
+% outside of the main text columns and, therefore, unlike regular IEEE
+% journals, the available text space is not reduced by their presence.
+% If you want to put a publisher's ID mark on the page you can do it like
+% this:
+%\IEEEpubid{0000--0000/00\$00.00~\copyright~2007 IEEE}
+% or like this to get the Computer Society new two part style.
+%\IEEEpubid{\makebox[\columnwidth]{\hfill 0000--0000/00/\$00.00~\copyright~2007 IEEE}%
+%\hspace{\columnsep}\makebox[\columnwidth]{Published by the IEEE Computer Society\hfill}}
+% Remember, if you use this you must call \IEEEpubidadjcol in the second
+% column for its text to clear the IEEEpubid mark (Computer Society jorunal
+% papers don't need this extra clearance.)
+
+
+
+% use for special paper notices
+%\IEEEspecialpapernotice{(Invited Paper)}
+
+
+
+% for Computer Society papers, we must declare the abstract and index terms
+% PRIOR to the title within the \IEEEcompsoctitleabstractindextext IEEEtran
+% command as these need to go into the title area created by \maketitle.
+\IEEEcompsoctitleabstractindextext{%
+\begin{abstract}
+%\boldmath
+Since the first decade of the 21st century network science is undergoing a huge increase of popularity. \cite{BarabasiNetworkBook}  Data in form of graphs is increasingly used to observe behavior of agents in networks, to find inter-object interactions and to map out objects like diseases \cite{HDN2007} to use the network's topology to discover subtle relationships that might not be discovered otherwise. Weighted graphs enrich these findings by adding a dimension of interaction strength and allowing for deeper understanding of object interaction. With the rising amount of data, elaborate algorithms are needed to find structures and patterns within the graphs to facilitate analysis and interpretation. One very important tool used is the clustering of graphs to detect interesting and meaningful substructures to make sense of the data. But most state of the art clustering algorithms require input parameters like the expected number of clusters. This creates the need to compute the approximate number of clusters in beforehand thus complicating the utilization of such algorithms and their application on real world data as well as research.
+This paper is presenting and analyzing the PaCCo \textit{(Parameter-free Clustering by Coding costs)} algorithm as introduced by Mueller et al. \cite{mueller2011weighted} that overcomes those issues by using the Minimum Description Length (MDL) principle together with a bisecting k-Means approach to automatically and parameter independently cluster weighted graphs on the basis of coding costs and data compression.
+\end{abstract}
+% IEEEtran.cls defaults to using nonbold math in the Abstract.
+% This preserves the distinction between vectors and scalars. However,
+% if the journal you are submitting to favors bold math in the abstract,
+% then you can use LaTeX's standard command \boldmath at the very start
+% of the abstract to achieve this. Many IEEE journals frown on math
+% in the abstract anyway. In particular, the Computer Society does
+% not want either math or citations to appear in the abstract.
+
+% Note that keywords are not normally used for peerreview papers.
+\begin{IEEEkeywords}
+Weighted Graph, Coding Cost, Clustering, Data Compression
+\end{IEEEkeywords}}
+
+
+% make the title area
+\maketitle
+
+% To allow for easy dual compilation without having to reenter the
+% abstract/keywords data, the \IEEEcompsoctitleabstractindextext text will
+% not be used in maketitle, but will appear (i.e., to be "transported")
+% here as \IEEEdisplaynotcompsoctitleabstractindextext when compsoc mode
+% is not selected <OR> if conference mode is selected - because compsoc
+% conference papers position the abstract like regular (non-compsoc)
+% papers do!
+\IEEEdisplaynotcompsoctitleabstractindextext
+% \IEEEdisplaynotcompsoctitleabstractindextext has no effect when using
+% compsoc under a non-conference mode.
+
+
+% For peer review papers, you can put extra information on the cover
+% page as needed:
+% \ifCLASSOPTIONpeerreview
+% \begin{center} \bfseries EDICS Category: 3-BBND \end{center}
+% \fi
+%
+% For peerreview papers, this IEEEtran command inserts a page break and
+% creates the second title. It will be ignored for other modes.
+\IEEEpeerreviewmaketitle
+
+
+
+\section{Introduction}
+\IEEEPARstart{T}{he} analysis of graph data benefits majorly from detecting substructures to infer meaning from a graph's topology and interpret data correctly. Even though a lot of graph clustering algorithms were developed by research, few of them are applicable to weighted graphs, which additionally to their adjacency information contain a dimension of interaction magnitude represented by edge weights.  
+To leverage the supplemental information contained in weighted graphs, the clustering strategy of the PaCCo algorithm as introduced by Mueller et al. \cite{mueller2011weighted} maximizes the similarity of nodes, represented as edge weights, as well as the interconnectivity inside a cluster by accounting for few inter-cluster links by employing a strategy based on data compression and the MDL principle. It assigs nodes to clusters that induce the minimal coding effort for data compression.
+The potential application area for weighted graph clustering is immense, ranging from biological and medical research like the Human Disease Network \cite{HDN2007}, social network and meta information analysis, the improvement of database systems to stock market analysis and many more.
+This paper will, after describing related state of the art (SOA) graph clustering algorithms, frame out the structure of the PaCCo technique and analyze its performance in relation to selected SOA algorithms.
+
+%\hfill Tim Berger
+%\hfill May 14, 2014
+
+\section{Related Algorithms}
+\label{sec:relatedAlgorithms}
+Research developed many useful graph algorithms, but only few can be applied to graphs containing weighted edges. The following section gives a brief overview of existing well-known graph algorithms to later compare their performance with that of PaCCo.
+
+\textbf{Spectral Clustering} is a class of algorithms, that utilize the Eigenstructure of a similarity matrix to find graph partitions. It divides a graph into subgraphs by deleting the weakest links between clusters which results into a disjoint clustering of the graph. A challenge is to find the suitable cluster number of a graph in order to execute the algorithm. Additionally, they are prone to outliers. Zelnik-Manor et al. \cite{zelnik2004self} developed a spectral clustering algorithm that infers the number of clusters $ k $, making it independent of the user's best choice of $ k $.
+
+\textbf{Markov Clustering} (MCL) can be applied on weighted graphs. By checking for high-flowing regions it determines clusters in the graph \cite{dongen2000cluster}. An inflation parameter defines the granularity on how weak and high-flowing regions are separated. It can therefore be compared to the cluster parameter $ k $.
+
+\textbf{Metis} describes a class of techniques for graph partitioning originally proposed by Karypis and Kumar \cite{karypis1998software}. It recursively bisects a graph and subsequently improves the subgraphs with the help of refinement algorithms. As with other graph clustering algorithms an appropriate number of clusters has to be chosen in beforehand of the execution of the algorithm. 
+
+
+\textbf{MDL-based Clustering of Unweighted Graphs} uses the Cross-Association approach of Chakrabati et al. \cite{chakrabarti2004fully} that employs MDL to create a parameter-free algorithm for partitioning unweighted graphs. The inspiration for the design of PaCCo can be seen here.
+
+With the exception of \cite{chakrabarti2004fully}\cite{zelnik2004self}, all presented algorithms are parameter-dependent and suffer from excessive runtime in comparison to PaCCo (see section \ref{sec:perfomance}). The algorithmic design of PaCCo, based on MDL, resolves the issues of parameter dependence and also functions as convergence criterion that creates a fully automatic clustering process.
+
+\section{The PaCCo Algorithm}
+This section describes the mathematical and algorithmic formulation of the PaCCo algorithm and is split into two parts: the basic recursion steps and its details of computing the various costs measures used in determining the best fit clustering.
+
+
+%Overview: Input, Output
+%Method/Algorithm
+
+%aus Präsentation:
+%Clustering weighted graphs (parameter-free, fully automatic,
+%reduced runtime)
+%• Input data: adjacency matrix (containing weight information)
+%• Downsplitting of the clusters according to the smallest coding costs
+%suggested by MDL
+
+%clusters are compressed by the type and parameters of the probability density function (e.g. Gaussian, μ=3.5, σ=1.0)
+
+
+
+\subsection{PaCCo - Basic Steps}
+In PaCCo, node information is compressed using Huffman coding and obeying to the MDL principle, which allow for similar nodes, in terms of edge weights and connectivity, to be clustered thus resulting in stronger graph compression and lower coding costs. 
+MDL, originally introduced by Rissanen \cite{rissanen1978modeling} is a measure in information theory that takes advantage of regularities in data and can be defined as "Find the model with which data and the
+model can be encoded with shortest code length" \cite{MLencylopediaMDL} and thus finds an automatic balance of Goodness-of-fit and model complexity.
+
+The single input of the algorithm is the adjacency matrix  $A$ of an undirected weighted graph $ G=(V,E)$ with its set of nodes $ n = |V| $  and edges $ |E| $, and the matrix consisting of $n \times n$ entries of $a_{i,j} $ containing the edge weights $ w_{i,j} $ between all nodes $ v_{i}$ and $ v_{j}$ of $G$: 
+
+	\begin{align}
+		a_{i,j}=
+		\left\{
+			\begin{array}{ll}
+				w_{i,j},  & \mbox{if } e_{i,j} \in E \\
+				0 & otherwise.
+			\end{array}
+		\right.
+	\end{align}
+
+As the algorithm adjusts automatically for the number of clusters on basis of coding costs, PaCCo works parameter independent.
+
+PaCCo utilizes a recursive algorithmic pattern to discern the optimal clustering of $ G $ into $ |C| $ clusters with $ C = \{C_{1},...,C_{n}\} $  by following two basic steps: \\
+
+	\begin{description}
+		\item[I] \textbf{Graph bisection}
+		\item[II] \textbf{Graph clustering} using k-PaCCo \{ \\
+		\begin{description} 	\fontsize{8pt}{0pt}
+			\item[(a)] if split "pays off":\\ keep clustering
+			\item[(b)] otherwise stop
+		\end{description} 
+		\}
+	\end{description}
+
+where $ k = 2 $ in every iteration, since the graph is bisected. 
+
+In every recursion step the graph bisection is driven by a better-then-random heuristic that takes into account the weight distribution of the current graph and the potential subgraphs. To initialize two new subgraphs, both centers of the probability density functions (PDFs) of the edge weights of the prospective subgraphs  get torn apart and shifted up respectively down by one standard deviation. The \figref{InitSubgraphs} depicts this process using a Gaussian Distribution (GD) as PDF.
+
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=0.8\linewidth]{PaCCo_GraphBisection}
+		\caption{Initialization of subgraphs; \\Source: \cite{mueller2011weighted} }
+		\label{fig:InitSubgraphs}
+	\end{figure}
+
+ It can be seen that the two new resulting subgraphs share less similarities, but in both distributions the variation of edge weights decreased thus forcing the to-be-assigned nodes of each cluster to be more similar than before.
+
+After computing various cost measures explained in section \ref{sec:insideClusters}, nodes get reassigned to one of the new clusters $ C_{l} \in C $ by using a k-Means approach and considering the minimal coding costs for $ v_{i} $ in the respective cluster $ C_{l} $ by
+\begin{align}
+	C_{new}(v_{i})= \underset{C_{l}\in C}{\text{min}} \;c(v_{i}|C_{l}).
+	\eqlabel{eq:clusterAssignment}
+\end{align}
+
+Since the sum of the node compression costs for all nodes in a cluster results in the cluster costs
+
+	\begin{align}
+		c(C_{l})=\sum_{v_{i}\in C_{l}}c(v_{i}|C_{l})
+		\eqlabel{clusterCosts}
+	\end{align}
+	
+ the objective function for PaCCo can be modeled as
+ 
+	\begin{align}
+		min \; Modelcost(G|C)=\sum_{l=1}^{k}c(C_{l})+c(p)
+		\eqlabel{MinmodelCosts}.
+	\end{align}
+	
+To account for the costs of storing the clustering model, meaning the $ \mu_{C_{l}} $ and $ \sigma_{C_{l}} $ of every cluster's weight distribution, the term $ c(p) $ is added. Since every valid graph splitting will increase the number of distributions by one, this term grows linearly.
+Ultimately, following the objective function, the split version of the subgraph will be kept if
+
+	\begin{align}
+		Modelcost(G_{l_{split}}|C_{l_{split}}) < Modelcost(G_{l}|C_{l}).
+	\eqlabel{keepModelCosts}
+	\end{align}
+	
+To get the initial modelcost of the original input graph, k-PaCCo is initialized with k = 1. Note, that after one iteration the membership of all nodes stays the same since it will converge after one step.
+Afterwards, the graph will be split top-down until the algorithm finds  subgraphs that are more expensive then their predecessors in every recursion branch-off. 
+
+\subsection{PaCCo - Inside the clusters}
+\label{sec:insideClusters}
+As the cluster costs and thus the modelcosts are depending on the costs of coding each node in its respective cluster, the questions arises how the computation takes place. 
+In reference to \cite{mueller2011weighted} the costs of compressing a node $ v_{i} $ inside $ C_{l}$ is defined as
+
+	\begin{align}
+		c(v_{i}|C_{l})=c_{weights}(v_{i}|C_{l})+c_{linkage}(v_{i}|C_{l})
+		\eqlabel{nodeCosts}
+	\end{align}
+
+and is depicted in \figref{nodeCosts}.
+
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=0.8\linewidth]{PaCCo_NodeCosts}
+		\caption{Visualization of node costs; \\Source: own representation based on \cite{mueller2011weighted}}
+		\label{fig:nodeCosts}
+	\end{figure}
+
+As PaCCo tries to maximize the number of nodes that share similar weight information in one cluster, cluster weight representatives (medoids as used in k-Means \cite{Runkler2010DataAnalytics}) are introduced to cluster the nodes accordingly (see \eqref{eq:clusterAssignment}). 
+To evaluate the edge weights of a node $ v_{i} $ according to the edge weights of nodes in its prospective cluster $ C_{l} $, its set of edges is put into relation to the underlying distribution of weights in $ C_{l} $. To achieve this, a probability density function with  $ \mu_{C_{l}} $ and $ \sigma_{C_{l}} $ of the cluster's edge weights is computed and every edge weight of $ v_{i} $ evaluated in respect to the PDF. To compress the PDF, Huffman coding is used, which is defined as the inverse logarithm of the probability of an object and is an entropy encoding algorithm for lossless data compression. The costs of coding the weights of a node $ v_{i} $ inside a Cluster $ C_{l} $ can therefore be described as
+\begin{align}
+	c_{weights}(v_{i}|C_{l})
+	\eqlabel{weightCosts}=-log_{2}(f_{PDF}(v_{i}))
+\end{align}
+
+Since a lot of biological processes are originated from a Gaussian distribution (GD), it will be used to further illustrate the mechanics of the algorithm. Note that PaCCo is also able to handle other PDFs and to automatically detect them.
+To fully evaluate all edges of a node with respect to the weight distribution of the cluster
+
+	\begin{align}		
+		f_{GD}(v_{i};\mu_{C_{l}},\sigma_{C_{l}}) = \frac{1}{|C_{l}|} \sum_{\forall v_{j} \in C_{l}} \frac{1}{\sqrt{2 \pi \sigma_{C_{l}}^{2}}}e^{-{\frac{(w_{i,j}-\mu_{C_{l}})^{2}}{2 \sigma_{C_{l}}^{2} }}}
+		\eqlabel{Weights_PDF_GD}
+	\end{align}
+
+is used. 
+
+When assigning a node to a cluster $ C_{l} $, linkage costs have to be considered. They are computed as follows 
+	\begin{align}
+		c_{linkage}(v_{i}|C_{l})=-.5log_{2}(|e_{i,j'}|)+.5log_{2}(|e_{i,j''}|)
+		\eqlabel{linkageCosts}
+	\end{align}
+where $ v_{j'} \in C_{l}, \; \forall\, e_{i,j'} \in E $ and ${ v_{j''} \in C, \; \forall\, e_{i,j''} \in E }$.
+The first summand stands for the number of edges from $ v_{i} $ to nodes inside its prospective cluster, the second summand represents the number of edges from $ v_{i} $ to every its adjacent node respectively. 
+Therefore PaCCo punishes edges between clusters and tries to maximize the inner-cluster connectivity.
+
+After all nodes were reassigned to their respective clusters, the $ \mu_{C_{l}} $ and $ \sigma_{C_{l}} $ of every cluster's weight distribution are updated.  
+
+With its design, PaCCo maximizes the similarity of nodes in one cluster, the cluster interconnectivity and accounts for few intra-cluster links.
+
+\section{Performance of PaCCo}
+\label{sec:perfomance}
+To test the performance of PaCCo various tests on synthetic and real world were performed. To compare the results of the synthetic data clustering with the performance of the algorithms described in section \ref{sec:relatedAlgorithms} the adjusted mutual information (AMI) was used. It is a measure from information theory with a scale of $ [0,1] $ that makes clustering results comparable while correcting for the chance, that a clustering may have been valid through randomness.
+
+The \textit{synthetic data } experiments comprise of three categories (number of noise edges added, variation of weight spacing intervals and variation of the cluster number k) each with three different underlying distributions (Gaussian, Uniform, Laplacian). Only at the experiment of varying the cluster number $ k $, MCL and Metis were able to perform equivalently to PaCCo. In all other experiments PaCCo outperformed every compared algorithm in terms of AMI. Also, it performed well independent of the underlying distribution.
+
+Also the running times of the different algorithms were compared. However it has to be noted that only the approach of Zelnik-Manor et al. (SpectralZM) \cite{zelnik2004self} can be directly compared as it is the only parameter-independent clustering algorithm tested besides PaCCo. To put the performance of PaCCo into full perspective regarding parameter-dependent techniques, the computation time for evaluating the optimal cluster numbers should have been added. The original paper did not include this while comparing running times of the different algorithms, but mentioned the deficiency aside. It was found that PaCCo can outperform SpectralZM by order of 70 and runs in super-linear complexity.
+
+For comparing the results of clustering\textit{ real world data}, the information-theoretic measure Modularity was used and adjusted to be applicable on weighted graphs. It takes a higher value if the cluster interconnectivity increases and intra-cluster linking decreases. As data, gene interactions of organisms were used. In terms of finding meaningful clusters, PaCCo outperformed the other algorithms. When the test graphs where enriched for a special activity inside, only PaCCo was able to identify the new resulting cluster.
+
+Except for the real world data, the experiments can be easily reproduced and checked for bias, as a detailed description of the experiment categories was given. Being tested on synthetic and real world data a full overview of the perfomance of the PaCCo algorithm was given. 
+
+%\subsubsection{Subsubsection Heading Here}
+%Subsubsection text here.
+
+
+% An example of a floating figure using the graphicx package.
+% Note that \label must occur AFTER (or within) \caption.
+% For figures, \caption should occur after the \includegraphics.
+% Note that IEEEtran v1.7 and later has special internal code that
+% is designed to preserve the operation of \label within \caption
+% even when the captionsoff option is in effect. However, because
+% of issues like this, it may be the safest practice to put all your
+% \label just after \caption rather than within \caption{}.
+%
+% Reminder: the "draftcls" or "draftclsnofoot", not "draft", class
+% option should be used if it is desired that the figures are to be
+% displayed while in draft mode.
+%
+%\begin{figure}[!t]
+%\centering
+%\includegraphics[width=2.5in]{myfigure}
+% where an .eps filename suffix will be assumed under latex, 
+% and a .pdf suffix will be assumed for pdflatex; or what has been declared
+% via \DeclareGraphicsExtensions.
+%\caption{Simulation Results}
+%\label{fig_sim}
+%\end{figure}
+
+% Note that IEEE typically puts floats only at the top, even when this
+% results in a large percentage of a column being occupied by floats.
+% However, the Computer Society has been known to put floats at the bottom.
+
+
+% An example of a double column floating figure using two subfigures.
+% (The subfig.sty package must be loaded for this to work.)
+% The subfigure \label commands are set within each subfloat command, the
+% \label for the overall figure must come after \caption.
+% \hfil must be used as a separator to get equal spacing.
+% The subfigure.sty package works much the same way, except \subfigure is
+% used instead of \subfloat.
+%
+%\begin{figure*}[!t]
+%\centerline{\subfloat[Case I]\includegraphics[width=2.5in]{subfigcase1}%
+%\label{fig_first_case}}
+%\hfil
+%\subfloat[Case II]{\includegraphics[width=2.5in]{subfigcase2}%
+%\label{fig_second_case}}}
+%\caption{Simulation results}
+%\label{fig_sim}
+%\end{figure*}
+%
+% Note that often IEEE papers with subfigures do not employ subfigure
+% captions (using the optional argument to \subfloat), but instead will
+% reference/describe all of them (a), (b), etc., within the main caption.
+
+
+% An example of a floating table. Note that, for IEEE style tables, the 
+% \caption command should come BEFORE the table. Table text will default to
+% \footnotesize as IEEE normally uses this smaller font for tables.
+% The \label must come after \caption as always.
+%
+%\begin{table}[!t]
+%% increase table row spacing, adjust to taste
+%\renewcommand{\arraystretch}{1.3}
+% if using array.sty, it might be a good idea to tweak the value of
+% \extrarowheight as needed to properly center the text within the cells
+%\caption{An Example of a Table}
+%\label{table_example}
+%\centering
+%% Some packages, such as MDW tools, offer better commands for making tables
+%% than the plain LaTeX2e tabular which is used here.
+%\begin{tabular}{|c||c|}
+%\hline
+%One & Two\\
+%\hline
+%Three & Four\\
+%\hline
+%\end{tabular}
+%\end{table}
+
+
+% Note that IEEE does not put floats in the very first column - or typically
+% anywhere on the first page for that matter. Also, in-text middle ("here")
+% positioning is not used. Most IEEE journals use top floats exclusively.
+% However, Computer Society journals sometimes do use bottom floats - bear
+% this in mind when choosing appropriate optional arguments for the
+% figure/table environments.
+% Note that, LaTeX2e, unlike IEEE journals, places footnotes above bottom
+% floats. This can be corrected via the \fnbelowfloat command of the
+% stfloats package.
+
+\section{Conclusion}
+Conluding from the analysis of the experiments and the description of the algorithmic design, PaCCo offers various benefits in comparison to other state of the art graph clustering techniques: parameter-independent, automatic clustering of weighted graphs in reduced runtime, nearly independent of the underlying distributions and making it easily applicable on real world data and research to discover interesting graph structures.
+
+Although crisp, disjoint clustering facilitates the interpretation of graph data, fuzzy graph clustering \cite{Miyamoto2000} could be considered as an optional add-on for PaCCo as it can be in some cases of importance to discover alternative structures of graphs.
+
+In its current state, PaCCo is only able to process data that can be fully loaded into the virtual memory thus imposing a limit on clustering networks that overgrow that size. Even though virtual memory can be manually changed, operation system configuration can complicate that process. To further evolve the potential of PaCCo and expand its applicability in large scale networks, redesigning PaCCo to a distributed computation paradigm is recommended to solve bigger problems and secure its future competitiveness.  
+
+
+% if have a single appendix:
+%\appendix[Proof of the Zonklar Equations]
+% or
+%\appendix  % for no appendix heading
+% do not use \section anymore after \appendix, only \section*
+% is possibly needed
+
+% use appendices with more than one appendix
+% then use \section to start each appendix
+% you must declare a \section before using any
+% \subsection or using \label (\appendices by itself
+% starts a section numbered zero.)
+%
+
+
+
+
+%\subsection{Underlying principles}
+%This section briefly explains the most important mathematical principals used by the PaCCo algorithm.
+
+%\subsubsection{k-Means Clustering}
+%\label{sec:k-Means}
+
+%	\begin{figure}[h]
+	%	\centering
+	%	\includegraphics[width=0.8\linewidth]{MLEncyclopedia_k-Means}
+	%	\caption{k-Means algorithm; \\Source: \cite{MLencylopedia} }
+	%	\label{fig:k-Means}
+%	\end{figure}
+
+
+%Centroids Initialize K cluster centers randomly. 2) Assign points to the closest center. 3) Update centers. 4) Iterate 2) und 3) until convergence.
+
+%+ fast convergence,
+%+ well-defined objective function,
+%+ gives a model describing the result.
+
+%	\begin{align}
+%		J=\sum_{i=1}^{c}\sum_{x_{k}\in C_{i}}\parallel x_{k}-v_{i} 	\parallel^{2}
+%		\eqlabel{kMeansJForm}
+%	\end{align}
+
+%Which is defined as "[...] the sum of the square distances between cluster centers and data points belonging to the respective clusters" \cite{Runkler2010DataAnalytics}
+
+
+%\subsubsection{Huffman-Coding}
+%\label{sec:huffman}
+%---TODO
+
+%Data compression is a very general measure for:
+%- The amount of any kind of non-random information in any kind of data,
+%- The success of any kind of data mining technique.
+
+
+
+
+\appendices
+%\section{Test 1}
+%Appendix one text goes here.
+
+% you can choose not to have a title for an appendix
+% if you want by leaving the argument blank
+%\section{Test 2}
+%Appendix two text goes here.
+
+
+% Can use something like this to put references on a page
+% by themselves when using endfloat and the captionsoff option.
+\ifCLASSOPTIONcaptionsoff
+  \newpage
+\fi
+
+
+
+% trigger a \newpage just before the given reference
+% number - used to balance the columns on the last page
+% adjust value as needed - may need to be readjusted if
+% the document is modified later
+%\IEEEtriggeratref{8}
+% The "triggered" command can be changed if desired:
+%\IEEEtriggercmd{\enlargethispage{-5in}}
+
+% references section
+
+% can use a bibliography generated by BibTeX as a .bbl file
+% BibTeX documentation can be easily obtained at:
+% http://www.ctan.org/tex-archive/biblio/bibtex/contrib/doc/
+% The IEEEtran BibTeX style support page is at:
+% http://www.michaelshell.org/tex/ieeetran/bibtex/
+\bibliographystyle{IEEEtran}
+% argument is your BibTeX string definitions and bibliography database(s)
+\bibliography{PaCCoBib}
+%
+% <OR> manually copy in the resultant .bbl file
+% set second argument of \begin to the number of references
+% (used to reserve space for the reference number labels box)
+
+
+
+%\begin{thebibliography}{1}
+%\bibitem{IEEEhowto:kopka}
+%H.~Kopka and P.~W. Daly, \emph{A Guide to \LaTeX}, 3rd~ed.\hskip 1em plus
+%  0.5em minus 0.4em\relax Harlow, England: Addison-Wesley, 1999.
+%\end{thebibliography}
+
+% biography section
+% 
+% If you have an EPS/PDF photo (graphicx package needed) extra braces are
+% needed around the contents of the optional argument to biography to prevent
+% the LaTeX parser from getting confused when it sees the complicated
+% \includegraphics command within an optional argument. (You could create
+% your own custom macro containing the \includegraphics command to make things
+% simpler here.)
+%\begin{biography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{mshell}}]{Michael Shell}
+% or if you just want to reserve a space for a photo:
+
+
+
+
+% that's all folks
+\end{document}
