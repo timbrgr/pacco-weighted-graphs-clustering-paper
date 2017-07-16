@@ -5,6 +5,23 @@ The PaCCo algorithm was originally conceptualized and devised by:
 Mueller, N.S., Haegler, K., Shao, J., Plant, C. and Böhm, C., 2011, April. Weighted graph compression for parameter-free clustering with pacco. In Proceedings of the 2011 SIAM International Conference on Data Mining (pp. 932-943). Society for Industrial and Applied Mathematics.
 https://pdfs.semanticscholar.org/21f3/5d96e7854e1d41ba7e1e1f0c33886719af7c.pdf
 
+**ABSTRACT**
+
+Since the first decade of the 21st century network science is undergoing a huge increase of popularity. [1]
+Data in form of graphs is increasingly used to observe behavior of agents in networks, to find inter-object interactions
+and to map out objects like diseases [2] to use the network’s topology to discover subtle relationships that might not be
+discovered otherwise. Weighted graphs enrich these findings by adding a dimension of interaction strength and allowing
+for deeper understanding of object interaction. With the rising amount of data, elaborate algorithms are needed to find
+structures and patterns within the graphs to facilitate analysis and interpretation. One very important tool used is the
+clustering of graphs to detect interesting and meaningful substructures to make sense of the data. But most state of the
+art clustering algorithms require input parameters like the expected number of clusters. This creates the need to compute
+the approximate number of clusters in beforehand thus complicating the utilization of such algorithms and their application
+on real world data as well as research. This paper is presenting and analyzing the PaCCo (Parameter-free Clustering by
+Coding costs) algorithm as introduced by Mueller et al. [3] that overcomes those issues by using the Minimum Description
+Length (MDL) principle together with a bisecting k-Means approach to automatically and parameter independently cluster
+weighted graphs on the basis of coding costs and data compression.
+
+
 **REFERENCES**
 
 [1] A.-L. Barabsi, M. Martino, M. Psfai, and P. Hvel, Network
